@@ -260,7 +260,7 @@ async function loadCalendar() {
   try {
     const from = new Date().toISOString().slice(0, 10);
     const to = new Date(Date.now() + 7 * 864e5).toISOString().slice(0, 10);
-    const r = await fetch(`https://finnhub.io/api/v1/calendar/economic?from=${from}&to=${to}&token=${FINNHUB_KEY}`);
+    const r = await fetch(`https://finnhub.io/api/v1/calendar/economic?from=${from}&to=${to}&token=${db2v2ihr01qsltcq0ccgdb2v2ihr01qsltcq0cd0}`);
     const d = await r.json();
     const events = (d.economicCalendar || [])
       .filter(e => ["US", "EU", "GB", "JP", "CN", "CH", "DE", "FR", "AU", "CA", "NZ"].includes(e.country))
