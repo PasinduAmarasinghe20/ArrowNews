@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MarketPulse — Forex · Crypto · Gold News & Community</title>
+<meta name="description" content="All fundamental forex, crypto and gold news in one place, with a live trader community.">
+<link rel="stylesheet" href="styles.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+   <!-- Favicon -->
+    <link rel="icon" type="image/jpg" href="img/prf.jpg">
+    <link rel="apple-touch-icon" href="img/prf.jpg">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <div class="logo">Market<span>Pulse</span></div>
+    <div class="header-meta">
+      <span id="clock" class="clock"></span>
+      <span id="conn-status" class="conn-badge">connecting…</span>
+    </div>
+  </div>
+  <div class="ticker-bar">
+    <div class="wrap ticker-track" id="ticker"><span class="ticker-item muted">Loading live prices…</span></div>
+  </div>
+</header>
+
+<section class="wrap widgets-row">
+
+  <div class="widget-card fng-card">
+    <div class="widget-title">Crypto fear &amp; greed</div>
+    <div class="gauge-wrap">
+      <svg id="fng-gauge" viewBox="0 0 200 120" width="200" height="120">
+        <path d="M20 110 A 80 80 0 0 1 180 110" fill="none" stroke="var(--border)" stroke-width="14" stroke-linecap="round"/>
+        <path id="fng-arc" d="M20 110 A 80 80 0 0 1 180 110" fill="none" stroke="var(--danger)" stroke-width="14" stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="251.3"/>
+        <text id="fng-needle" x="100" y="74" text-anchor="middle" font-size="26" font-weight="700" fill="var(--text)">–</text>
+      </svg>
+      <div id="fng-label" class="fng-label">loading…</div>
+      <div id="fng-updated" class="fng-updated"></div>
+    </div>
+  </div>
+
+  <div class="widget-card cal-card">
+    <div class="widget-title">Economic calendar <span id="cal-badge" class="cal-badge">next 7 days</span></div>
+    <div id="cal-list" class="cal-list"><div class="empty">Loading events…</div></div>
+  </div>
+
+</section>
+
+<main class="wrap layout">
+
+  <section class="news-column">
+    <div class="tabs" id="news-tabs">
+      <button class="tab active" data-filter="all">All news</button>
+      <button class="tab" data-filter="forex">Forex</button>
+      <button class="tab" data-filter="crypto">Crypto</button>
+      <button class="tab" data-filter="gold">Gold</button>
+    </div>
+    <div id="news-feed" class="news-feed"></div>
+  </section>
+
+  <aside class="chat-column">
+    <div class="chat-panel">
+      <div class="chat-head">
+        <strong>Community chat</strong>
+        <span class="online"><span class="dot"></span><span id="online-count">live</span></span>
+      </div>
+      <div class="chat-rooms" id="chat-rooms">
+        <button class="room active" data-room="all">All</button>
+        <button class="room" data-room="forex">Forex</button>
+        <button class="room" data-room="crypto">Crypto</button>
+        <button class="room" data-room="gold">Gold</button>
+      </div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <form class="chat-form" id="chat-form">
+        <input id="chat-input" type="text" maxlength="500" placeholder="Share your market idea…" autocomplete="off" required>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </aside>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>MarketPulse · news aggregated from public RSS feeds · not financial advice.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
