@@ -6,8 +6,8 @@
       following README.md (Supabase free + GitHub Actions cron).
    ===================================================================== */
 
-const SUPABASE_URL = "";        // e.g. "https://xyzcompany.supabase.co"
-const SUPABASE_ANON_KEY = "";   // anon/public key (safe to expose in frontend)
+const SUPABASE_URL = "https://vnqtlkmwgdvmerjwxufx.supabase.co";        // e.g. "https://xyzcompany.supabase.co"
+const SUPABASE_ANON_KEY = "vnqtlkmwgdvmerjwxufx";   // anon/public key (safe to expose in frontend)
 
 const LIVE = SUPABASE_URL && SUPABASE_ANON_KEY;
 const sb = LIVE ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
